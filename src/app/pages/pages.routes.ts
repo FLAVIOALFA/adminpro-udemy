@@ -16,6 +16,6 @@ const pagesRoutes: Routes = [
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },
-]
+];
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );
