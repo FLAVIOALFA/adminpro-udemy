@@ -13,6 +13,7 @@ import { APP_ROUTES } from './app.routes';
 
 // Modulos
 import { PagesModule } from './pages/pages.module';
+import { ServiceModule } from './services/service.module';
 
 
 @NgModule({
@@ -25,9 +26,9 @@ import { PagesModule } from './pages/pages.module';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

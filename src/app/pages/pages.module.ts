@@ -17,6 +17,7 @@ import { ChartsModule } from 'ng2-charts';
 
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PAGES_ROUTES } from './pages.routes';
         PagesComponent,
         Graficas1Component,
         IncrementadorComponent,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AccountSettingsComponent
     ],
     exports: [
         DashboardComponent,
@@ -36,9 +38,9 @@ import { PAGES_ROUTES } from './pages.routes';
         GraficoDonaComponent
     ],
     imports: [
+        FormsModule,
         SharedModule,
         PAGES_ROUTES,
-        FormsModule,
         ChartsModule
     ]
 })
