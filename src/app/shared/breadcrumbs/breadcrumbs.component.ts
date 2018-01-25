@@ -37,7 +37,7 @@ export class BreadcrumbsComponent implements OnInit {
     return this._router.events
           .filter( (event: ActivationEnd) => event instanceof ActivationEnd)
           .filter( (event: ActivationEnd) => event.snapshot.firstChild === null )
-          .map( (event: ActivationEnd) => event.snapshot.data)
+          .map( (event: ActivationEnd) => event.snapshot.data);
   }
 
   ngOnInit() {
