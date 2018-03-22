@@ -3,3 +3,11 @@
 #themecolors a {
     cursor: pointer;
 }
+
+.cpointer {
+    cursor: pointer;
+}
+
+.w150 {
+    width: 150px;
+}

@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
  import { SettingService, 
           SharedService, 
           SidebarService,
-          UsuarioService
+          UsuarioService,
+          SubirArchivoService
         } from './service.index';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     SettingService, 
     SharedService, 
     SidebarService,
-    UsuarioService
+    UsuarioService,
+    SubirArchivoService
   ],
   declarations: []
 })
