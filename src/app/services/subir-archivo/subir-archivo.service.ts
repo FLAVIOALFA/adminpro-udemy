@@ -12,9 +12,9 @@ export class SubirArchivoService {
       let formData = new FormData();
       let xhr = new XMLHttpRequest();
       
-      formData.append( 'imagen', archivo, archivo.name );
-      xhr.onreadystatechange = () => {
-        // Esperamos a que termine la peticion
+      formData.append('imagen', archivo, archivo.name);
+      xhr.onreadystatechange = function() {
+        // Esperamos a que termine el proceso
         if (xhr.readyState === 4) {
           // Preguntamos si se subio el archivo
            if (xhr.status === 200)  {

@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor( public _usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.usuario = this._usuarioService.usuario;
   }
 
   logout() {
