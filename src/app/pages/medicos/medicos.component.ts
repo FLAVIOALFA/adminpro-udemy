@@ -20,13 +20,13 @@ export class MedicosComponent implements OnInit {
     this.cargarMedicos();
   }
 
-  cargarMedicos() {
-    this.totalMedicos = this._medicosServices.totalMedicos;
+  cargarMedicos() {    
     this.cargando = true;
     this._medicosServices.cargarMedicos()
         .subscribe( medicos => {
           this.medicos = medicos;
           this.cargando = false;
+          this.totalMedicos = this._medicosServices.totalMedicos;
         });
   }
 
