@@ -86,11 +86,10 @@ export class UsuarioService {
     }
 
     let url = URL_SERVICIOS + '/login';
-    
+
     return this._http.post(url, usuario)
-               .map( (resp: any) => {             
-                this.guardarStorage(resp.id, resp.token, resp.usuario, resp.menu);
-                console.log(resp.menu);
+               .map( (resp: any) => {
+                this.guardarStorage(resp.id, resp.token, resp.usuario, resp.menu);                
                  return true;
                })
                .catch( (err: any) => {
