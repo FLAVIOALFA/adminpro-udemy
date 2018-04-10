@@ -4,8 +4,11 @@ import { URL_SERVICIOS } from '../../config/config';
 
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/Operator/map';
 import { Router } from '@angular/router';
+
+import 'rxjs/add/Operator/map';
+import 'rxjs/add/Operator/catch';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UsuarioService {
@@ -89,6 +92,10 @@ export class UsuarioService {
                 this.guardarStorage(resp.id, resp.token, resp.usuario, resp.menu);
                 console.log(resp.menu);
                  return true;
+               })
+               .catch( (err: any) => {
+                 swal('Error al loguearse', err.error.message, 'error');
+                 return Observable.throw(err);
                });
   }
 
@@ -98,6 +105,10 @@ export class UsuarioService {
                 .map( (resp: any) => {
                   swal('Usuario Creado', usuario.email, 'success');
                   return resp.usuario;
+                })
+                .catch( (err: any) => {                  
+                  swal(err.error.message, err.error.errors.errors.email.message, 'error');
+                  return Observable.throw(err);
                 });
   }
 
@@ -114,7 +125,11 @@ export class UsuarioService {
                 
                    swal('Usuario Actualizado', usuario.nombre, 'success');  
                    return true;               
-               });
+               })
+               .catch( (err: any) => {                
+                swal(err.error.message, err.error.errors.message, 'error');
+                return Observable.throw(err);
+              });
   }
 
   cambiarImagen(archivo: File, id: string) {
