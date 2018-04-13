@@ -16,9 +16,15 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 // Guards
 import { LoginGuardGuard, AdminGuard } from '../services/service.index';
+import { VerificaTokenGuard } from '../services/service.index';
 
 const pagesRoutes: Routes = [
-    { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
+    { 
+        path: 'dashboard', 
+        component: DashboardComponent, 
+        data: { titulo: 'Dashboard' }, 
+        canActivate: [ VerificaTokenGuard]
+    },
     { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress Bars' } },
     { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Gráficas' }},
     { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de Tema' } },

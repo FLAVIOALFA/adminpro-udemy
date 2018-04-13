@@ -6,8 +6,8 @@ import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import 'rxjs/add/Operator/map';
-import 'rxjs/add/Operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -23,6 +23,24 @@ export class UsuarioService {
     public _subirArchivoService: SubirArchivoService
   ) {
     this.cargarStorage();
+  }
+
+  renuevaToken() {
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token ;
+
+    return this._http.get(url)
+                .map( (resp: any) => {
+                  this.token = resp.token;
+                  localStorage.setItem('token', this.token);
+                  console.log('Token renovado');
+                })
+                .catch( (err: any) => {
+                  swal('Session caducada', 'Debes volver a loguearte', 'err');
+                  this._router.navigate(['/login']);
+                  return Observable.throw(err);
+                });
+
   }
   
   estaLogueado() {
@@ -63,7 +81,7 @@ export class UsuarioService {
     this.token = null;
     this.menu = [];
 
-    window.location.href = '#/login';
+    this._router.navigate(['/login']);
   }
 
   loginGoogle(token: string) {

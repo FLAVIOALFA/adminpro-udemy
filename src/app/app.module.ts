@@ -13,7 +13,7 @@ import { PagesComponent } from './pages/pages.component';
 import { APP_ROUTES } from './app.routes';
 
 // Modulos
-import { PagesModule } from './pages/pages.module';
+// import { PagesModule } from './pages/pages.module';
 import { ServiceModule } from './services/service.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -28,11 +28,12 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     APP_ROUTES,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceModule,
     SharedModule    
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

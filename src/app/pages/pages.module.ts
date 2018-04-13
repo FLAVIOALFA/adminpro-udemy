@@ -33,9 +33,9 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
     declarations: [
+        // PagesComponent,
         DashboardComponent,
         ProgressComponent,
-        // PagesComponent,
         Graficas1Component,
         IncrementadorComponent,
         GraficoDonaComponent,
@@ -53,15 +53,13 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     exports: [
         DashboardComponent,
         ProgressComponent,
-        // PagesComponent,
-        Graficas1Component,
-        GraficoDonaComponent
+        Graficas1Component
     ],
     imports: [
         CommonModule,
-        FormsModule,
         SharedModule,
         PAGES_ROUTES,
+        FormsModule,
         ChartsModule,
         PipesModule
     ]

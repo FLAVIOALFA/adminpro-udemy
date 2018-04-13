@@ -1,3 +1,5 @@
+export { VerificaTokenGuard } from './guards/verifica-token.guard';
+
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { AdminGuard } from './guards/admin.guard';
 
@@ -9,5 +11,3 @@ export { ModalUploadService } from '../components/modal-upload/modal-upload.serv
 export { UsuarioService } from './usuario/usuario.service';
 export { HospitalService } from './hospital/hospital.service';
 export { MedicoService } from './medico/medico.service';
-
-
